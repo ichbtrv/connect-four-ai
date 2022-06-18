@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  @apply text-white bg-black antialiased;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+.appear {
+  opacity: 0;
+  animation: appear 1.5s cubic-bezier(0.1, 0, 0.175, 1) forwards;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
