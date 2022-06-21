@@ -16,11 +16,11 @@ const ColorChooser: React.FC<ColorChooserProps> = ({ onClick }) => {
       </div>
       <div className="flex">
         <div
-          className="bg-sky-500 hover:border cursor-pointer rounded-md h-24 w-24 mr-4"
+          className="bg-sky-500 hover:outline outline-sky-500  cursor-pointer rounded-md h-24 w-24 mr-4"
           onClick={() => onClick(blue)}
         />
         <div
-          className="bg-red-700 hover:border cursor-pointer rounded-md h-24 w-24"
+          className="bg-red-700 hover:outline outline-red-700 cursor-pointer rounded-md h-24 w-24"
           onClick={() => onClick(red)}
         />
       </div>
