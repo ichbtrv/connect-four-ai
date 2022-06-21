@@ -1,8 +1,6 @@
-# c4
+# Tech Used
 
-## Tech Used
-
--Next.JS
--TailwindCSS
--TypeScript
--React useReducer/useContext for state
+- Next.JS
+- TailwindCSS
+- TypeScript
+- React useReducer/useContext for state
