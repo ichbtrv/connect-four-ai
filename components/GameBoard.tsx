@@ -7,6 +7,7 @@ import React, {
 import { useBoard } from 'hooks/useBoard';
 import { CellColor, Player } from 'types';
 import ResetModal from './ResetModal';
+import Cell from './Cell';
 
 enum Color {
   'blue' = 'bg-sky-500 border-sky-500',
@@ -48,6 +49,10 @@ const GameBoard: React.FC<BoardProps> = ({ playerTurn, color }) => {
     [move]
   );
 
+  const cellClick = (index: number) => {
+    winner < 0 && onMove(index);
+    debounceClick();
+  }
   useEffect(() => {
     if (!turn) computerMove();
     turn = true;
@@ -65,14 +70,11 @@ const GameBoard: React.FC<BoardProps> = ({ playerTurn, color }) => {
       >
         {board.map((player: Player, index: number) => {
           return (
-            <div
+            <Cell
               className={`${HoverColor[playerColor]} ${clicked ? 'pointer-events-none' : 'cursor-pointer'
                 } border m-2 rounded-full bg-opacity-70 brightness-125 ${player === 1 ? Color[playerColor] : ''
                 } ${player === 2 ? Color[computerColor] : ''}`}
-              onClick={() => {
-                winner < 0 && onMove(index);
-                debounceClick();
-              }}
+              onClick={() => cellClick(index)}
               key={`cell-${index}`}
             />
           );
