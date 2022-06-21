@@ -37,11 +37,6 @@ body {
   animation: appear 0.75s cubic-bezier(0.1, 0, 0.175, 1) forwards;
 }
 
-.disappear {
-  opacity: 0;
-  animation: appear 1.5s cubic-bezier(0.1, 0, 0.175, 1) backwards;
-}
-
 @keyframes appear {
   to {
     opacity: 1;
