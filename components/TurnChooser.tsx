@@ -3,7 +3,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 type ColorType = {
   blue: string;
   red: string;
-}
+};
 
 enum Color {
   'blue' = 'text-sky-500',
