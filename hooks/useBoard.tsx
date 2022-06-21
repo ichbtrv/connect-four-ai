@@ -109,6 +109,7 @@ export const findLowestEmptyIndex = (board: Board, column: number) => {
   return -1;
 };
 
+// max index is 3
 const connectService = async (board: Board, move = 4) => {
   const result: string[] = await fetch(
     `${process.env.NEXT_PUBLIC_9DT_SERVICE}[${move === 4 ? '' : move}]`
@@ -143,7 +144,6 @@ export function useBoard(): {
   move: (index: number) => number;
   computerMove: () => number;
   gameState: () => Player | GameState;
-  resetBoard: () => void;
 } {
   const initialBoard = useContext(BoardContext);
 
@@ -156,9 +156,6 @@ export function useBoard(): {
         }
         case 'ADDCOMPUTER': {
           state[action.computerMove] = 2;
-          return [...state];
-        }
-        case 'RESET': {
           return [...state];
         }
         default:
@@ -209,13 +206,9 @@ export function useBoard(): {
     return -1;
   };
 
-  const resetBoard = () => {
-    dispatch({ type: 'RESET' });
-  };
-
   const gameState = () => {
     return getGameState(board);
   };
 
-  return { board, move, computerMove, gameState, resetBoard };
+  return { board, move, computerMove, gameState };
 }
