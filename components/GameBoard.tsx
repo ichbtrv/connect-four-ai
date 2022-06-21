@@ -53,6 +53,7 @@ const GameBoard: React.FC<BoardProps> = ({ playerTurn, color }) => {
     winner < 0 && onMove(index);
     debounceClick();
   }
+
   useEffect(() => {
     if (!turn) computerMove();
     turn = true;
